@@ -1,4 +1,4 @@
-const CACHE = 'floorplan-shell-v2'
+const CACHE = 'floorplan-shell-7e84233d9281'
 const BASE = new URL(self.registration.scope).pathname
 const SHELL = [
   BASE,
@@ -32,7 +32,13 @@ async function precache() {
 }
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(precache().then(() => self.skipWaiting()))
+  event.waitUntil(precache())
+})
+
+self.addEventListener('message', (event) => {
+  if (event.data === 'SKIP_WAITING' || event.data?.type === 'SKIP_WAITING') {
+    self.skipWaiting()
+  }
 })
 
 self.addEventListener('activate', (event) => {
