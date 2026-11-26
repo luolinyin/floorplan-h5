@@ -1,4 +1,4 @@
-const CACHE = 'floorplan-shell-528af9611294'
+const CACHE = 'floorplan-shell-349e27d4ffda'
 const BASE = new URL(self.registration.scope).pathname
 const SHELL = [
   BASE,
